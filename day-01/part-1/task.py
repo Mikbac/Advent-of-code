@@ -1,6 +1,8 @@
 # cat sample | python3 task.py
 # cat input | python3 task.py
 
+#  Created by MikBac on 2021
+
 counter = 0
 
 lineOne = int((input().strip()))
