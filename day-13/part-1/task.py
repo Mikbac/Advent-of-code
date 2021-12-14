@@ -75,4 +75,4 @@ for y in range(len(paper)):
             dotsQuantity += 1
 
 print('Dots quantity = {}'.format(dotsQuantity))
-#
+# 712
