@@ -3,6 +3,8 @@
 
 #  Created by MikBac on 2021
 
+# For alternate solution use: import networkx as nx
+
 import copy
 
 graphList = []
@@ -86,25 +88,38 @@ for i in range(len(graphList)):
                 g.addEdge(edgeCounter, edgeCounter + 1, graphList[i][j + 1])
                 g.addEdge(edgeCounter, edgeCounter + graphSize, graphList[i + 1][j])
             elif j == graphSize - 1:
+                g.addEdge(edgeCounter, edgeCounter - 1, graphList[i][j - 1])
                 g.addEdge(edgeCounter, edgeCounter + graphSize, graphList[i + 1][j])
             else:
+                g.addEdge(edgeCounter, edgeCounter - 1, graphList[i][j - 1])
                 g.addEdge(edgeCounter, edgeCounter + 1, graphList[i][j + 1])
                 g.addEdge(edgeCounter, edgeCounter + graphSize, graphList[i + 1][j])
         elif i == graphSize - 1:
             if j == 0:
                 g.addEdge(edgeCounter, edgeCounter + 1, graphList[i][j + 1])
+                g.addEdge(edgeCounter, edgeCounter - graphSize, graphList[i - 1][j])
             elif j == graphSize - 1:
                 pass
+                g.addEdge(edgeCounter, edgeCounter - 1, graphList[i][j - 1])
+                g.addEdge(edgeCounter, edgeCounter - graphSize, graphList[i - 1][j])
             else:
+                g.addEdge(edgeCounter, edgeCounter - 1, graphList[i][j - 1])
                 g.addEdge(edgeCounter, edgeCounter + 1, graphList[i][j + 1])
+                g.addEdge(edgeCounter, edgeCounter - graphSize, graphList[i - 1][j])
         else:
             if j == 0:
                 g.addEdge(edgeCounter, edgeCounter + 1, graphList[i][j + 1])
+                g.addEdge(edgeCounter, edgeCounter - graphSize, graphList[i - 1][j])
                 g.addEdge(edgeCounter, edgeCounter + graphSize, graphList[i + 1][j])
             elif j == graphSize - 1:
+
+                g.addEdge(edgeCounter, edgeCounter - 1, graphList[i][j - 1])
+                g.addEdge(edgeCounter, edgeCounter - graphSize, graphList[i - 1][j])
                 g.addEdge(edgeCounter, edgeCounter + graphSize, graphList[i + 1][j])
             else:
+                g.addEdge(edgeCounter, edgeCounter - 1, graphList[i][j - 1])
                 g.addEdge(edgeCounter, edgeCounter + 1, graphList[i][j + 1])
+                g.addEdge(edgeCounter, edgeCounter - graphSize, graphList[i - 1][j])
                 g.addEdge(edgeCounter, edgeCounter + graphSize, graphList[i + 1][j])
 
         edgeCounter += 1
