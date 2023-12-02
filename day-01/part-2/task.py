@@ -1,7 +1,7 @@
 # cat sample | python3 task.py
 # cat input | python3 task.py
 
-# Created by MikBac on 2022
+# Created by MikBac on 2023
 
 def main():
 	sum = 0
@@ -28,7 +28,7 @@ def main():
 
 			for i in reversed(calibration):
 				if i.isdigit():
-					numb = numb + i
+					numb += i
 					break
 
 			sum = sum + int(numb)
