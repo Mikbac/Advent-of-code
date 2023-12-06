@@ -6,6 +6,9 @@
 import math
 
 def main():
+	time = []
+	distance = []
+
 	while True:
 		try:
 			time = [eval(i) for i in input().strip().split(':')[1].split()]
@@ -13,16 +16,16 @@ def main():
 		except EOFError:
 			break
 
-		beat_records = []
+	beat_records = []
 
-		for i in range(len(time)):
-			beat_records.append(0)
-			for hold_button_time in range(time[i]):
-				travel_time = (time[i] - hold_button_time) * hold_button_time
-				if travel_time > distance[i]:
-					beat_records[i] += 1
+	for i in range(len(time)):
+		beat_records.append(0)
+		for hold_button_time in range(time[i]):
+			travel_time = (time[i] - hold_button_time) * hold_button_time
+			if travel_time > distance[i]:
+				beat_records[i] += 1
 
-		result = math.prod(beat_records)
+	result = math.prod(beat_records)
 
 	print('Answer: {}'.format(result))
 
