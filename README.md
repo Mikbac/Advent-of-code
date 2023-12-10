@@ -1,11 +1,10 @@
 # Advent of code solutions
 
+## [2021](2021)
 
-## [2023](2023)
+[Advent of Code 2021 Home Page](https://adventofcode.com/2021)
 
-[Advent of Code 2023 Home Page](https://adventofcode.com/2023)
-
-:star: **Stars:** 18/50 :star:
+:star: **Stars:** 30/50 :star:
 
 ## [2022](2022)
 
@@ -13,8 +12,8 @@
 
 :star: **Stars:** 17/50 :star:
 
-## [2021](2021)
+## [2023](2023)
 
-[Advent of Code 2021 Home Page](https://adventofcode.com/2021)
+[Advent of Code 2023 Home Page](https://adventofcode.com/2023)
 
-:star: **Stars:** 30/50 :star:
+:star: **Stars:** 18/50 :star:
