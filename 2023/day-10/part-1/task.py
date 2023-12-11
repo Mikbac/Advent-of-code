@@ -99,40 +99,40 @@ def map_nodes(location_Y, location_X):
 	global pipe_map
 	global nodes_map
 
-	if pipe_map[location_Y + 1][location_X] == '|':
+	if pipe_map[location_Y][location_X] in 'S|7F' and pipe_map[location_Y + 1][location_X] == '|':
 		add_to_map(location_Y, location_X, location_Y + 1, location_X)
 
-	if pipe_map[location_Y - 1][location_X] == '|':
+	if pipe_map[location_Y][location_X] in 'S|LJ' and pipe_map[location_Y - 1][location_X] == '|':
 		add_to_map(location_Y, location_X, location_Y - 1, location_X)
 
-	if pipe_map[location_Y][location_X + 1] == '-':
+	if pipe_map[location_Y][location_X] in 'S-FL' and pipe_map[location_Y][location_X + 1] == '-':
 		add_to_map(location_Y, location_X, location_Y, location_X + 1)
 
-	if pipe_map[location_Y][location_X - 1] == '-':
+	if pipe_map[location_Y][location_X] in 'S-J7' and pipe_map[location_Y][location_X - 1] == '-':
 		add_to_map(location_Y, location_X, location_Y, location_X - 1)
 
-	if pipe_map[location_Y + 1][location_X] == 'L':
+	if pipe_map[location_Y][location_X] in 'S|7F' and pipe_map[location_Y + 1][location_X] == 'L':
 		add_to_map(location_Y, location_X, location_Y + 1, location_X)
 
-	if pipe_map[location_Y][location_X - 1] == 'L':
+	if pipe_map[location_Y][location_X] in 'S-J7' and pipe_map[location_Y][location_X - 1] == 'L':
 		add_to_map(location_Y, location_X, location_Y, location_X - 1)
 
-	if pipe_map[location_Y + 1][location_X] == 'J':
+	if pipe_map[location_Y][location_X] in 'S|7F' and pipe_map[location_Y + 1][location_X] == 'J':
 		add_to_map(location_Y, location_X, location_Y + 1, location_X)
 
-	if pipe_map[location_Y][location_X + 1] == 'J':
+	if pipe_map[location_Y][location_X] in 'S-FL' and pipe_map[location_Y][location_X + 1] == 'J':
 		add_to_map(location_Y, location_X, location_Y, location_X + 1)
 
-	if pipe_map[location_Y - 1][location_X] == '7':
+	if pipe_map[location_Y][location_X] in 'S|LJ' and pipe_map[location_Y - 1][location_X] == '7':
 		add_to_map(location_Y, location_X, location_Y - 1, location_X)
 
-	if pipe_map[location_Y][location_X + 1] == '7':
+	if pipe_map[location_Y][location_X] in 'S-FL' and pipe_map[location_Y][location_X + 1] == '7':
 		add_to_map(location_Y, location_X, location_Y, location_X + 1)
 
-	if pipe_map[location_Y - 1][location_X] == 'F':
+	if pipe_map[location_Y][location_X] in 'S|LJ' and pipe_map[location_Y - 1][location_X] == 'F':
 		add_to_map(location_Y, location_X, location_Y - 1, location_X)
 
-	if pipe_map[location_Y][location_X - 1] == 'F':
+	if pipe_map[location_Y][location_X] in 'S-J7' and pipe_map[location_Y][location_X - 1] == 'F':
 		add_to_map(location_Y, location_X, location_Y, location_X - 1)
 
 	current_location = '{}-{}'.format(str(location_Y), str(location_X))
