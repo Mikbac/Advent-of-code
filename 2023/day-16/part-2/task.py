@@ -11,7 +11,7 @@ def main():
 	global map
 	global visited_map
 
-	sum = 0
+	results = []
 
 	with open('input', 'r', encoding='utf-8') as input_:
 		for row, line in enumerate(input_):
@@ -22,14 +22,48 @@ def main():
 	map.append(list('+' * len(map[0])))
 	map.insert(0, list('+' * len(map[0])))
 
-	visited_map = copy.deepcopy(map)
+	for i in range(1, len(map[1]) - 1):
+		visited_map = copy.deepcopy(map)
+		go([1, i], 1, 'v', [])
 
-	go([1, 1], 1, '>', [])
+		sum = 0
+		for i in range(len(visited_map)):
+			sum += visited_map[i].count('#')
 
-	for i in range(len(visited_map)):
-		sum += visited_map[i].count('#')
+		results.append(sum)
 
-	print('Answer: {}'.format(sum))
+	for i in range(1, len(map[1]) - 1):
+		visited_map = copy.deepcopy(map)
+		go([len(map) - 2, i], 1, '^', [])
+
+		sum = 0
+		for i in range(len(visited_map)):
+			sum += visited_map[i].count('#')
+
+		results.append(sum)
+
+	for i in range(1, len(map) - 1):
+		visited_map = copy.deepcopy(map)
+		go([i, 1], 1, '>', [])
+
+		sum = 0
+		for i in range(len(visited_map)):
+			sum += visited_map[i].count('#')
+
+		results.append(sum)
+
+	for i in range(1, len(map) - 1):
+		visited_map = copy.deepcopy(map)
+		go([i, len(map[i]) - 2], 1, '<', [])
+
+		sum = 0
+		for i in range(len(visited_map)):
+			sum += visited_map[i].count('#')
+
+		results.append(sum)
+
+	answer = max(results)
+	print('Answer: {}'.format(answer))
 
 
 def go(current_position, steps, direction, visited):
