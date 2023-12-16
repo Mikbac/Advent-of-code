@@ -5,11 +5,13 @@ import sys
 
 map = []
 visited_map = []
+entries_map = []
 
 
 def main():
 	global map
 	global visited_map
+	global entries_map
 
 	results = []
 
@@ -23,6 +25,8 @@ def main():
 	map.insert(0, list('+' * len(map[0])))
 
 	for i in range(1, len(map[1]) - 1):
+		if [1, i] in entries_map:
+			continue
 		visited_map = copy.deepcopy(map)
 		go([1, i], 1, 'v', [])
 
@@ -33,6 +37,8 @@ def main():
 		results.append(sum)
 
 	for i in range(1, len(map[1]) - 1):
+		if [len(map) - 2, i] in entries_map:
+			continue
 		visited_map = copy.deepcopy(map)
 		go([len(map) - 2, i], 1, '^', [])
 
@@ -43,6 +49,8 @@ def main():
 		results.append(sum)
 
 	for i in range(1, len(map) - 1):
+		if [i, 1] in entries_map:
+			continue
 		visited_map = copy.deepcopy(map)
 		go([i, 1], 1, '>', [])
 
@@ -53,6 +61,8 @@ def main():
 		results.append(sum)
 
 	for i in range(1, len(map) - 1):
+		if [i, len(map[i]) - 2] in entries_map:
+			continue
 		visited_map = copy.deepcopy(map)
 		go([i, len(map[i]) - 2], 1, '<', [])
 
@@ -69,8 +79,17 @@ def main():
 def go(current_position, steps, direction, visited):
 	global map
 	global visited_map
+	global entries_map
 
 	if map[current_position[0]][current_position[1]] == '+':
+		if direction == '>':
+			entries_map.append([current_position[0], current_position[1] - 1])
+		if direction == '<':
+			entries_map.append([current_position[0], current_position[1] + 1])
+		if direction == '^':
+			entries_map.append([current_position[0] + 1, current_position[1]])
+		if direction == 'v':
+			entries_map.append([current_position[0] - 1, current_position[1]])
 		return
 
 	visited.append(current_position)
