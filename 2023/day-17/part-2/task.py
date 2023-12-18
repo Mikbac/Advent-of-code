@@ -54,9 +54,9 @@ def go(cs, lost_heat, last_direction, jump_size, traffic_map):
 		return
 
 	visited_steps['{}-{}-{}'.format(cs[0], cs[1], last_direction)] = lost_heat
-	# min -> 1
-	# max -> 3
-	for jump in reversed(range(1, 4)):
+	# min -> 4
+	# max -> 10
+	for jump in reversed(range(4, 11)):
 		if last_direction != '>' and last_direction != '<':
 			go([cs[0], cs[1] + jump], lost_heat, '>', jump, traffic_map)
 			go([cs[0], cs[1] - jump], lost_heat, '<', jump, traffic_map)
