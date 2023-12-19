@@ -4,10 +4,9 @@ def main():
 	current_location = [0, 0]
 
 	commands_map = {'0': 'R', '1': 'D', '2': 'L', '3': 'U'}
-
 	coordinates = []
+	margin_area = 0
 
-	area = 0
 	with open('input', 'r', encoding='utf-8') as input_:
 		for row, line in enumerate(input_):
 			command = line.strip().split(' ')[2]
@@ -25,11 +24,11 @@ def main():
 
 			# [[x1, y1], [x2, y2]]
 			coordinates.append(current_location.copy())
-			area += length
+			margin_area += length
 
 	answer = shoelace_area(coordinates)
 
-	print('Answer: {}'.format(answer + area / 2 + 1))
+	print('Answer: {}'.format(answer + margin_area / 2 + 1))
 
 
 # https://en.wikipedia.org/wiki/Shoelace_formula
