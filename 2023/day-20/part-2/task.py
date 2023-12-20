@@ -2,6 +2,7 @@
 
 import math
 
+
 def main():
 	configuration = {}
 	conjunction_list = []
@@ -21,13 +22,19 @@ def main():
 					conjunction_statuses[j] = {}
 					conjunction_statuses[j][i[1:]] = 'L'
 
-	# &lg -> rx
+	# find rx config (&lg -> rx)
+	rx_config = ''
+	for key, value in configuration.items():
+		if 'rx' in value:
+			rx_config = key[1:]
+			break
+
+	# find rx config configs
 	lcm_values = {}
-	for p in conjunction_statuses['lg'].keys():
+	for p in conjunction_statuses[rx_config].keys():
 		lcm_values[p] = 0
 
 	flip_flop_statuses = {}
-
 	button_pulses = 0
 
 	while True:
