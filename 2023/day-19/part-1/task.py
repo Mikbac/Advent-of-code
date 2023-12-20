@@ -2,8 +2,6 @@
 
 
 def main():
-	global plan
-
 	workflows = {}
 	elves = []
 
