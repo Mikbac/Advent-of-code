@@ -22,7 +22,7 @@
 | day-18 | <img src="https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white" height=25> | :star: | :star2: |
 | day-19 | <img src="https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white" height=25> | :star: | :star2: |
 | day-20 | <img src="https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white" height=25> | :star: | :star2: |
-| day-21 | ------                                                                                                                   | ------ | ------- |
+| day-21 | <img src="https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white" height=25> | :star: | ------- |
 | day-22 | ------                                                                                                                   | ------ | ------- |
 | day-23 | ------                                                                                                                   | ------ | ------- |
 | day-24 | ------                                                                                                                   | ------ | ------- |
