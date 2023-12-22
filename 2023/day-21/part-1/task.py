@@ -2,7 +2,7 @@
 
 import copy
 
-STEPS_NUMBER = 64
+STEPS_NUMBER = 65
 
 elf_map = []
 
