@@ -14,18 +14,19 @@ def main():
 		for row, line in enumerate(input_):
 			elf_map.append(list(line.strip()))
 
-	s_position = []
+	s_position = ()
 	for i in range(len(elf_map)):
 		for j in range(len(elf_map[i])):
 			if elf_map[i][j] == 'S':
-				s_position = [i, j, 0, 0]
+				s_position = (i, j, 0, 0)
 
-	# 65 -> 3751
+	# (65, 65, 0, 0), 65 -> 3751
 	y1 = get_elf_steps(s_position, len(elf_map[0]) // 2)
-	# 196 -> 33531
+	# (65, 65, 0, 0), 196 -> 33531
 	y2 = get_elf_steps(s_position, len(elf_map[0]) // 2 + len(elf_map[0]))
-	# 327 -> 92991
+	# (65, 65, 0, 0), 327 -> 92991
 	y3 = get_elf_steps(s_position, len(elf_map[0]) // 2 + (2 * len(elf_map[0])))
+
 	n = STEPS_NUMBER // len(elf_map[0])
 
 	# Quadratic Interpolation
@@ -37,43 +38,40 @@ def main():
 def get_elf_steps(start_position, steps_number):
 	global elf_map
 
-	elf_next_queue = [start_position]
+	elf_next_queue = set()
+	elf_next_queue.add(start_position)
 
 	for _ in range(steps_number):
 
 		elf_queue = copy.deepcopy(elf_next_queue)
-		elf_next_queue = []
+		elf_next_queue = set()
 
 		while len(elf_queue) != 0:
-			ec = elf_queue.pop(0)
+			ec = elf_queue.pop()
 
 			if ec[0] - 1 >= 0:
-				if elf_map[ec[0] - 1][ec[1]] != '#' and [ec[0] - 1, ec[1], ec[2], ec[3]] not in elf_next_queue:
-					elf_next_queue.append([ec[0] - 1, ec[1], ec[2], ec[3]])
+				if elf_map[ec[0] - 1][ec[1]] != '#':
+					elf_next_queue.add((ec[0] - 1, ec[1], ec[2], ec[3]))
 			else:
-				if [len(elf_map) - 1, ec[1], ec[2] - 1, ec[3]] not in elf_next_queue:
-					elf_next_queue.append([len(elf_map) - 1, ec[1], ec[2] - 1, ec[3]])
+				elf_next_queue.add((len(elf_map) - 1, ec[1], ec[2] - 1, ec[3]))
 
 			if ec[0] + 1 < len(elf_map):
-				if elf_map[ec[0] + 1][ec[1]] != '#' and [ec[0] + 1, ec[1], ec[2], ec[3]] not in elf_next_queue:
-					elf_next_queue.append([ec[0] + 1, ec[1], ec[2], ec[3]])
+				if elf_map[ec[0] + 1][ec[1]] != '#':
+					elf_next_queue.add((ec[0] + 1, ec[1], ec[2], ec[3]))
 			else:
-				if [0, ec[1], ec[2] + 1, ec[3]] not in elf_next_queue:
-					elf_next_queue.append([0, ec[1], ec[2] + 1, ec[3]])
+				elf_next_queue.add((0, ec[1], ec[2] + 1, ec[3]))
 
 			if ec[1] - 1 >= 0:
-				if elf_map[ec[0]][ec[1] - 1] != '#' and [ec[0], ec[1] - 1, ec[2], ec[3]] not in elf_next_queue:
-					elf_next_queue.append([ec[0], ec[1] - 1, ec[2], ec[3]])
+				if elf_map[ec[0]][ec[1] - 1] != '#':
+					elf_next_queue.add((ec[0], ec[1] - 1, ec[2], ec[3]))
 			else:
-				if [ec[0], len(elf_map[0]) - 1, ec[2], ec[3] - 1] not in elf_next_queue:
-					elf_next_queue.append([ec[0], len(elf_map[0]) - 1, ec[2], ec[3] - 1])
+				elf_next_queue.add((ec[0], len(elf_map[0]) - 1, ec[2], ec[3] - 1))
 
 			if ec[1] + 1 < len(elf_map[0]):
-				if elf_map[ec[0]][ec[1] + 1] != '#' and [ec[0], ec[1] + 1, ec[2], ec[3]] not in elf_next_queue:
-					elf_next_queue.append([ec[0], ec[1] + 1, ec[2], ec[3]])
+				if elf_map[ec[0]][ec[1] + 1] != '#':
+					elf_next_queue.add((ec[0], ec[1] + 1, ec[2], ec[3]))
 			else:
-				if [ec[0], 0, ec[2], ec[3] + 1] not in elf_next_queue:
-					elf_next_queue.append([ec[0], 0, ec[2], ec[3] + 1])
+				elf_next_queue.add((ec[0], 0, ec[2], ec[3] + 1))
 
 	return len(elf_next_queue)
 

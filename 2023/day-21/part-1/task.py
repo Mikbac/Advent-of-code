@@ -2,7 +2,7 @@
 
 import copy
 
-STEPS_NUMBER = 65
+STEPS_NUMBER = 64
 
 elf_map = []
 
@@ -16,39 +16,36 @@ def main():
 
 	last_step_map = copy.deepcopy(elf_map)
 
-	s_position = []
+	s_position = ()
 	for i in range(len(elf_map)):
 		for j in range(len(elf_map[i])):
 			if elf_map[i][j] == 'S':
-				s_position = [i, j]
+				s_position = (i, j)
 
-	elf_next_queue = [s_position]
+	elf_next_queue = set()
+	elf_next_queue.add(s_position)
 
 	for i in range(STEPS_NUMBER + 1):
 		elf_queue = copy.deepcopy(elf_next_queue)
-		elf_next_queue = []
+		elf_next_queue = set()
 
 		while len(elf_queue) != 0:
-			ec = elf_queue.pop(0)
+			ec = elf_queue.pop()
 
 			if i == STEPS_NUMBER:
 				last_step_map[ec[0]][ec[1]] = 'O'
 
 			if ec[0] - 1 >= 0 and elf_map[ec[0] - 1][ec[1]] != '#':
-				if [ec[0] - 1, ec[1]] not in elf_next_queue:
-					elf_next_queue.append([ec[0] - 1, ec[1]])
+				elf_next_queue.add((ec[0] - 1, ec[1]))
 
 			if ec[0] + 1 < len(elf_map) and elf_map[ec[0] + 1][ec[1]] != '#':
-				if [ec[0] + 1, ec[1]] not in elf_next_queue:
-					elf_next_queue.append([ec[0] + 1, ec[1]])
+				elf_next_queue.add((ec[0] + 1, ec[1]))
 
 			if ec[1] - 1 >= 0 and elf_map[ec[0]][ec[1] - 1] != '#':
-				if [ec[0], ec[1] - 1] not in elf_next_queue:
-					elf_next_queue.append([ec[0], ec[1] - 1])
+				elf_next_queue.add((ec[0], ec[1] - 1))
 
 			if ec[1] + 1 < len(elf_map[0]) and elf_map[ec[0]][ec[1] + 1] != '#':
-				if [ec[0], ec[1] + 1] not in elf_next_queue:
-					elf_next_queue.append([ec[0], ec[1] + 1])
+				elf_next_queue.add((ec[0], ec[1] + 1))
 
 	ans_sum = 0
 	for i in last_step_map:
