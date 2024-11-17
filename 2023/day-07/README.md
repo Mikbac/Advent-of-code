@@ -1,4 +1,4 @@
-https://adventofcode.com/2023/day/7
+# https://adventofcode.com/2023/day/7
 
 Your puzzle answer was 251106089.
 

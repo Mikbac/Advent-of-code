@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	lines := lineReader.ReadFromFile("sample")
+	lines := lineReader.ReadStringsFromFile("sample")
 	answer := solution(lines)
 
 	fmt.Println("Answer:", answer)
