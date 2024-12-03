@@ -1,4 +1,4 @@
-# https://adventofcode.com/2024/day/2#part2
+# https://adventofcode.com/2024/day/2
 
 Your puzzle answer was 390.
 
