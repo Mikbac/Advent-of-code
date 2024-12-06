@@ -6,7 +6,7 @@
 | day-02 | <img src="https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white" height=25> | :star: | :star2: |
 | day-03 | <img src="https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white" height=25> | :star: | :star2: |
 | day-04 | <img src="https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white" height=25> | :star: | :star2: |
-| day-05 | ------                                                                                       | ------ | ------  |
+| day-05 | <img src="https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white" height=25> | :star: | :star2: |
 | day-06 | ------                                                                                       | ------ | ------  |
 | day-07 | ------                                                                                       | ------ | ------  |
 | day-08 | ------                                                                                       | ------ | ------  |

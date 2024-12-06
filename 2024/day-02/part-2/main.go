@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 	"utils/lineReader"
+	"utils/simpleFuncs"
 )
 
 func main() {
@@ -39,7 +40,7 @@ func solution(lines []string) int {
 			} else {
 				success := false
 				for j := 0; j < len(codes); j++ {
-					if nextRound(RemoveIndex(codes, j)) {
+					if nextRound(simpleFuncs.RemoveIndexFromSliceAndReturnString(codes, j)) {
 						success = true
 						break
 					}
@@ -79,10 +80,4 @@ func nextRound(s string) bool {
 		}
 	}
 	return status
-}
-
-func RemoveIndex(s []string, index int) string {
-	tmp := make([]string, len(s))
-	copy(tmp, s)
-	return strings.Join(append(tmp[:index], tmp[index+1:]...), " ")
 }
