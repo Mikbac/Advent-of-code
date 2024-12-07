@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	//lines := lineReader.ReadStringsFromFile("sample")
-	lines := lineReader.ReadStringsFromFile("input")
+	lines := lineReader.ReadStringsFromFile("sample")
+	//lines := lineReader.ReadStringsFromFile("input")
 	answer := solution(lines)
 
 	fmt.Println("Answer:", answer)
@@ -61,6 +61,7 @@ func generateCombination(input []string, depth int, product []string) [][]string
 	} else {
 		p1 := generateCombination(input, depth, append(product, "+"))
 		p2 := generateCombination(input, depth, append(product, "*"))
-		return append(p1, p2...)
+		p3 := generateCombination(input, depth, append(product, "||"))
+		return append(append(p1, p2...), p3...)
 	}
 }
