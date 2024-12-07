@@ -5,7 +5,7 @@ import (
 	"utils/simpleFuncs"
 )
 
-func TestReadStringsFromFile(t *testing.T) {
+func TestRemoveIndexFromSliceAndReturnString(t *testing.T) {
 	values := simpleFuncs.RemoveIndexFromSliceAndReturnString([]string{"a", "b", "c"}, 1)
 
 	if values != "a c" {

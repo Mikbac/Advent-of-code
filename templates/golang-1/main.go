@@ -9,6 +9,7 @@ import (
 
 func main() {
 	lines := lineReader.ReadStringsFromFile("sample")
+	//lines := lineReader.ReadStringsFromFile("input")
 	answer := solution(lines)
 
 	fmt.Println("Answer:", answer)
