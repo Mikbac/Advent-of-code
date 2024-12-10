@@ -36,3 +36,19 @@ func TestIntSubtractionAbs4(t *testing.T) {
 		t.Errorf("Expected 0, but got %v", values)
 	}
 }
+
+func TestAbs1(t *testing.T) {
+	values := simpleFuncs.IntAbs(5)
+
+	if values != 5 {
+		t.Errorf("Expected 5, but got %v", values)
+	}
+}
+
+func TestAbs2(t *testing.T) {
+	values := simpleFuncs.IntAbs(-5)
+
+	if values != 5 {
+		t.Errorf("Expected 5, but got %v", values)
+	}
+}
