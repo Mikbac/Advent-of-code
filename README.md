@@ -4,7 +4,7 @@
 
 [Advent of Code 2024 Home Page](https://adventofcode.com/2024)
 
-:star: **Stars:** 22/50 :star:
+:star: **Stars:** 24/50 :star:
 
 ## [2023](2023)
 
