@@ -32,7 +32,12 @@ func solution(lines []string) int {
 }
 
 func findOptimal(bA button, bB button, eX int, eY int) int {
-
+	// System of two equations
+	// e.g.
+	// x * 26 + y * 67 = 12748
+	// x * 66 + y * 21 = 12176
+	// https://www.wolframalpha.com/input?i=Assuming+a+system+of+two+equations&assumption=%7B%22F%22%2C+%22SolveSystemOf2EquationsCalculator%22%2C+%22equation1%22%7D+-%3E%22x*26%2By*67%3D12748%22&assumption=%7B%22F%22%2C+%22SolveSystemOf2EquationsCalculator%22%2C+%22equation2%22%7D+-%3E%22x*66%2By*21%3D12176%22
+	// ////////////////////////////
 	//      84 * 10000000004245 - 21 * 10000000005634
 	// x1 = ----------------------------------------- = 245901639437.2623
 	//      40 * 84 - 38 * 21

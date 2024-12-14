@@ -47,8 +47,8 @@ func solution(lines []string) int {
 }
 
 func findTree(robots []robot) bool {
-	places := []position{}
-
+	// assumption: two guards are never on the same field
+	var places []position
 	for _, r := range robots {
 		for _, p := range places {
 			if p == r.p {
@@ -58,10 +58,10 @@ func findTree(robots []robot) bool {
 		places = append(places, r.p)
 	}
 
-	tm := [][]string{}
-
+	// print tree
+	var tm [][]string
 	for t := 0; t < tall; t++ {
-		l := []string{}
+		var l []string
 		for w := 0; w < wide; w++ {
 			l = append(l, ".")
 		}
