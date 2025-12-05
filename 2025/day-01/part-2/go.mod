@@ -1,3 +1,3 @@
-module day-01/part-2
+module day-01/part-1
 
 go 1.20

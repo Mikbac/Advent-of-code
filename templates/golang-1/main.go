@@ -1,6 +1,6 @@
 package main
 
-// Created by MikBac on 2024
+// Created by MikBac on 2025
 
 import (
 	"fmt"
