@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	lines := lineReader.ReadStringsFromFile("sample")
-	//lines := lineReader.ReadStringsFromFile("input")
+	//lines := lineReader.ReadStringsFromFile("sample")
+	lines := lineReader.ReadStringsFromFile("input")
 	answer := solution(lines[0])
 
 	fmt.Println("Answer:", answer)
@@ -23,34 +23,32 @@ func solution(lines string) int {
 	for _, rang := range ranges {
 		startS := strings.Split(rang, "-")[0]
 		startN, _ := strconv.Atoi(strings.Split(rang, "-")[0])
-		endS := strings.Split(rang, "-")[1]
 		endN, _ := strconv.Atoi(strings.Split(rang, "-")[1])
 
-		seqEndMax := len(endS)
-		seqStartMax := len(startS)
+		visited := make(map[int]bool)
 
-		diffRangSize := seqEndMax - seqStartMax
-		initScope := strings.Repeat("1", diffRangSize) + startS
+		for startN <= endN {
 
-		for i := 1; i <= seqEndMax/2; i++ {
+			for i := 1; i <= len(startS)/2; i++ {
 
-			currentStage := ""
-			currentStage = initScope[:i]
+				currentStage := ""
+				currentStage = startS[:i]
 
-			for {
-				n, _ := strconv.Atoi(strings.Repeat(currentStage, i*(seqEndMax/i)))
+				n, _ := strconv.Atoi(strings.Repeat(currentStage, (len(startS) / i)))
 
 				if n > endN {
-					break
+					continue
 				}
 
-				if n >= startN && n <= endN {
+				if n >= startN && n <= endN && !visited[n] {
 					respSum += n
+					visited[n] = true
 				}
 
-				nexVal, _ := strconv.Atoi(currentStage)
-				currentStage = strconv.Itoa(nexVal + 1)
 			}
+
+			startN++
+			startS = strconv.Itoa(startN)
 		}
 	}
 

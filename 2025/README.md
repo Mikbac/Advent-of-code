@@ -3,7 +3,7 @@
 | Day    | Language                                                                                     | Part 1 | Part 2  |
 |--------|----------------------------------------------------------------------------------------------|--------|---------|
 | day-01 | <img src="https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white" height=25> | :star: | :star2: |
-| day-02 | ------                                                                                       | ------ | ------  |
+| day-02 | <img src="https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white" height=25> | :star: | :star2: |
 | day-03 | ------                                                                                       | ------ | ------  |
 | day-04 | ------                                                                                       | ------ | ------  |
 | day-05 | ------                                                                                       | ------ | ------  |
